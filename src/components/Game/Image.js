@@ -42,7 +42,7 @@ const Image = props => {
   let array = ["baby", "car", "flare", "gate", "hacker", "happytrio", "mud", "nedry", "shock", "sick", "sign", "trex"];
 
   let images = array.map((image, i) => {
-    return <img onClick={props.handleClick} key={i} src={(`/img/${image}.jpg`)} alt="" className="hoverable z-depth-2" />
+    return <img onClick={props.handleClick} key={i} src={(`./img/${image}.jpg`)} alt="" className="hoverable z-depth-2" />
   });
 
   return (
