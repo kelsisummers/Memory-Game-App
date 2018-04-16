@@ -35,7 +35,7 @@ class Game extends Component {
 			<div className="container game-container">
 				<div className="row">
 					<div className="col center">
-						<img className="logo" alt="logo" src="./img/logo.png" />
+						<img className="logo" alt="logo" src="./assets/logo.png" />
 						<h4 className="instructions center-align">Click on an image to earn points, but don't click on it more than once!</h4>
 					</div>
 					<Image 
