@@ -1,5 +1,10 @@
 import React from "react";
 
+import imgs from '../../img';
+
+
+console.log('these are our images imgs', imgs);
+
 // If we want a child component to update or pass data to its parent, we can create a method inside the parent for the update
 // Then bind the method to the parent, and pass it to the child as a prop
 // export function Shuffle(array) {
@@ -39,17 +44,19 @@ const Image = props => {
   //     }
   // };
 
-  let array = ["baby", "car", "flare", "gate", "hacker", "happytrio", "mud", "nedry", "shock", "sick", "sign", "trex"];
+  // let array = ["baby", "car", "flare", "gate", "hacker", "happytrio", "mud", "nedry", "shock", "sick", "sign", "trex"];
 
-  let images = array.map((image, i) => {
-    return <img onClick={props.handleClick} key={i} src={(`./img/${image}.jpg`)} alt={image} className="hoverable z-depth-2" />
-  });
+  // let images = array.map((image, i) => {
+  //   imgs.map
+  // return <img onClick={props.handleClick} key={i} src={(`./img/${image}.jpg`)} alt={image} className="hoverable z-depth-2" />
+// 
+  // });
 
   return (
     <div className="col">
       <h4>Count: {props.count} Clicked: {props.clicked.toString()} Score {props.score}</h4>
 
-      { images }
+      { imgs.map((img, i) => <img onClick={props.handleClick} key={i} src={img} alt={"img"} className="hoverable z-depth-2" />) }
     </div>  
   )
 };
