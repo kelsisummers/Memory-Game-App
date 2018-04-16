@@ -1,0 +1,18 @@
+img  {
+  margin: 15px;
+}
+
+.instructions{
+  font-family: 'Audiowide', cursive;
+  font-size: 1.4rem;
+}
+
+.game-container{
+  margin-left: 20vw;
+  margin-bottom: 50px
+}
+
+.logo {
+  margin-top: 50px
+}
+

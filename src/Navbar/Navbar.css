@@ -1,0 +1,18 @@
+.nav-wrapper {
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: #1B1C1C;
+  color: #ff0000;
+  font-family: 'Audiowide', cursive;
+}
+
+li {
+  margin-right: 40px;
+  font-size: 1.4rem;
+}
+
+nav .brand-logo{
+  color: #ff0000;
+  font-family: 'Audiowide', cursive;
+  margin-left: 20px;
+}
