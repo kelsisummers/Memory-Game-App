@@ -1,64 +1,37 @@
-import React from "react";
-
-import imgs from '../../img';
+import React, { Component } from "react";
 
 
-console.log('these are our images imgs', imgs);
+
+// console.log('these are our images imgs', imgs);
 
 // If we want a child component to update or pass data to its parent, we can create a method inside the parent for the update
 // Then bind the method to the parent, and pass it to the child as a prop
-// export function Shuffle(array) {
-//   var currentIndex = array.length, temporaryValue, randomIndex;
-
-//   // While there remain elements to shuffle...
-//   while (0 !== currentIndex) {
-
-//     // Pick a remaining element...
-//     randomIndex = Math.floor(Math.random() * currentIndex);
-//     currentIndex -= 1;
-
-//     // And swap it with the current element.
-//     temporaryValue = array[currentIndex];
-//     array[currentIndex] = array[randomIndex];
-//     array[randomIndex] = temporaryValue;
-//   }
-
-//   return array;
-// }
 
 
-const Image = props => {
 
+class Image extends Component {
 
-  // const imageClick = () => {
-	
-  //   // We always use the setState method to update a component's state
-  //     if (!this.state.clicked) {
-  //       this.props.handleClick(this.state);
-  //       this.setState({clicked: true}); // can set other things if needed
-  //       // Image.images = Shuffle.Shuffle(Image.images);
+  imageClick = ({ id, clicked }) => {
+    // We always use the setState method to update a component's state
+      if (!this.props.clicked) {
+        this.props.handleClick({ id, clicked });
         
-  //     } else {
-  //       //if it has been clicked just send state.
-  //       this.props.handleClick(this.state);
-  //     }
-  // };
+      } else {
+        //if it has been clicked just send state.
+        this.props.handleClick({ id, clicked });
+      }
+  };
 
-  // let array = ["baby", "car", "flare", "gate", "hacker", "happytrio", "mud", "nedry", "shock", "sick", "sign", "trex"];
-
-  // let images = array.map((image, i) => {
-  //   imgs.map
-  // return <img onClick={props.handleClick} key={i} src={(`./img/${image}.jpg`)} alt={image} className="hoverable z-depth-2" />
-// 
-  // });
-
-  return (
-    <div className="col">
-      <h4>Count: {props.count} Clicked: {props.clicked.toString()} Score {props.score}</h4>
-
-      { imgs.map((img, i) => <img onClick={props.handleClick} key={i} src={img} alt={"img"} className="hoverable z-depth-2" />) }
-    </div>  
-  )
+  render() {
+    const { id, clicked, img } = this.props;
+    return (
+      <div className="col">
+        {/* <h4>Count: {this.props.count} Score {this.props.score}</h4> */}
+  
+        <img onClick={e => this.imageClick({ id, clicked })} src={img} alt={"img"} className="hoverable z-depth-2" />
+      </div>  
+    )
+  }
 };
 
 export default Image;

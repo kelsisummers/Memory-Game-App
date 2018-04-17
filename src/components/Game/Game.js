@@ -2,49 +2,81 @@ import React, { Component } from 'react';
 import "./Game.css";
 import Image  from "./Image.js";
 import logo from "../../img/logo.png"
+import imgs from '../../img';
 
 class Game extends Component {
   constructor(props) {
     super(props);
-    this.state = { count: 0, clicked: false, score: 0 };
+    this.state = { count: 0, clicked: false, score: 0, imgs };
     // this.handleClick = this.handleClick.bind(this);
 	}
-	
-	// handleClick = (imageState) => {
-	// 	if(imageState.clicked) {
-	// 	// it has beeen clicked before so we reset game
-	// 	} else {
-	// 		// it has not been clicked, lets now increase score and stuff.
-	// 	}    
-  // };
 
-  handleClick = () => {
-		
-		// We always use the setState method to update a component's state
-		if (!this.state.clicked) {
-			this.setState({ count: 1, clicked: true, score: this.state.score + 1 });
-			// Image.images = Shuffle.Shuffle(Image.images);
-		} else {
-			this.setState({count: 0, clicked: false, score: 0})
+	shuffle(array) {
+		var currentIndex = array.length, temporaryValue, randomIndex;
+	
+		// While there remain elements to shuffle...
+		while (0 !== currentIndex) {
+	
+			// Pick a remaining element...
+			randomIndex = Math.floor(Math.random() * currentIndex);
+			currentIndex -= 1;
+	
+			// And swap it with the current element.
+			temporaryValue = array[currentIndex];
+			array[currentIndex] = array[randomIndex];
+			array[randomIndex] = temporaryValue;
 		}
-    
+	
+		return array;
+	}
+	
+	handleClick = ({ id, clicked }) => {
+		let imgs;
+		if(clicked) {
+		// it has beeen clicked before so we reset game
+			console.log("This has been clicked before", clicked);
+			imgs = this.state.imgs.map( img => { return {...img, clicked: false} })
+		// HAVE NOT SET TO FALSE YET
+		} else {
+			console.log("Hasn't been clicked before");
+			imgs = this.state.imgs.map(img => {
+				if (img.id === id) {
+					return { ...img, clicked: true }
+				} else return img
+			});
+
+			// it has not been clicked, lets now increase score and stuff.
+		}
+		
+		const score = imgs.reduce((acc, img) => {
+			console.log("what is img", img);
+			if (img.clicked) return acc + 1
+			else return acc
+		}, 0);
+
+		this.setState({score, imgs: this.shuffle(imgs)});
   };
 
 	render() {
-
-		return (
+		console.log("state", this.state);
+		return (	
 			<div className="container game-container">
 				<div className="row">
 					<div className="col center">
 						<img className="logo" alt="logo" src={logo} />
-						<h4 className="instructions center-align">Click on an image to earn points, but don't click on it more than once!</h4>
+						<h4 className="instructions center">Click on an image to earn points, but don't click it more than once!</h4>
 					</div>
-					<Image 
-						count={this.state.count}
-						clicked={this.state.clicked}
-						handleClick={this.handleClick}
-						score={this.state.score}
-					/>
+					{this.state.imgs.map((img, i) => {
+						return (
+					<Image
+					img={img.img}
+					clicked={img.clicked}
+					key={img.id}
+					id={img.id}
+					handleClick={this.handleClick}
+				/>
+			)
+					})}
 				</div>
 			</div>
 		);
