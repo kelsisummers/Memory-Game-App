@@ -1,13 +1,13 @@
 import React from "react";
 import "./Navbar.css";
-import Score from "../components/Game/Score.js";
+import Game from "../components/Game"
 
-const Navbar = () => (
+const Navbar = (props) => (
     <nav className="nav-wrapper">
     <div>
       <a className="brand-logo">Memory Game</a>
       <ul id="nav-mobile" className="right hide-on-med-and-down valign-wrapper">
-        <Score />
+        <li>Score: {props.score} </li>
       </ul>
     </div>
   </nav>

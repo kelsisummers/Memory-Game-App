@@ -3,12 +3,12 @@ import "./Game.css";
 import Image  from "./Image.js";
 import logo from "../../img/logo.png"
 import imgs from '../../img';
+import Navbar from '../../Navbar'
 
 class Game extends Component {
   constructor(props) {
     super(props);
     this.state = { count: 0, clicked: false, score: 0, imgs };
-    // this.handleClick = this.handleClick.bind(this);
 	}
 
 	shuffle(array) {
@@ -44,8 +44,6 @@ class Game extends Component {
 					return { ...img, clicked: true }
 				} else return img
 			});
-
-			// it has not been clicked, lets now increase score and stuff.
 		}
 		
 		const score = imgs.reduce((acc, img) => {
@@ -60,6 +58,8 @@ class Game extends Component {
 	render() {
 		console.log("state", this.state);
 		return (	
+			<main>
+				<Navbar score={this.state.score}/>
 			<div className="container game-container">
 				<div className="row">
 					<div className="col center">
@@ -79,6 +79,7 @@ class Game extends Component {
 					})}
 				</div>
 			</div>
+			</main>
 		);
 	}
 }
