@@ -11,6 +11,7 @@ Tech Stack:
   - HTML
   - CSS
   - JavaScript
+  - Materialize CSS Framework
 
 Dependencies:
   - axios
