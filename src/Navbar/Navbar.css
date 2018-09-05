@@ -1,18 +1,46 @@
 .nav-wrapper {
-  padding-left: 20px;
-  padding-right: 20px;
   background-color: #1B1C1C;
   color: #ff0000;
   font-family: 'Audiowide', cursive;
+  grid-area: nav;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
-li {
+a.brand-logo {
+  display: flex;
+  align-items: center;
+  width: 80%;
+  max-width: 850px;
+  min-width: 225px;
+}
+
+.logo {
+  width: 100%;
+}
+
+/* li {
   margin-right: 40px;
   font-size: 1.4rem;
-}
+} */
 
-nav .brand-logo{
+/* nav .brand-logo {
   color: #ff0000;
   font-family: 'Audiowide', cursive;
   margin-left: 20px;
+} */
+
+@media only screen and (max-width: 550px) {
+  .nav-wrapper {
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  a.brand-logo{
+    margin-right: 20px;
+  }
 }

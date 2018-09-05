@@ -1,16 +1,17 @@
 import React from "react";
 import "./Navbar.css";
-import Game from "../components/Game"
+import logo from "../img/GameLogo-white.png";
+// import Game from "../components/Game"
 
 const Navbar = (props) => (
-    <nav className="nav-wrapper">
-    <div>
-      <a className="brand-logo">Memory Game</a>
-      <ul id="nav-mobile" className="right hide-on-med-and-down valign-wrapper">
-        <li>Score: {props.score} </li>
-      </ul>
+    <div className='nav-wrapper'>
+      <a className="brand-logo">
+        <img className="logo" alt="logo" src={logo} />
+      </a>
+      {/* <ul id="nav-mobile" className="right hide-on-med-and-down valign-wrapper"> */}
+        <span className='score'>Score: {props.score} </span>
+      {/* </ul> */}
     </div>
-  </nav>
 );
 
 export default Navbar;

@@ -16,7 +16,7 @@ class Image extends Component {
   render() {
     const { id, clicked, img } = this.props;
     return (
-      <div className="col">
+      <div className="col game-img">
         <img onClick={e => this.imageClick({ id, clicked })} src={img} alt={"img"} className="hoverable z-depth-2" />
       </div>  
     )

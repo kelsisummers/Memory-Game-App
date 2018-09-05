@@ -2,9 +2,7 @@ import React from "react";
 import Game from "./components/Game"
 
 const App = () => (
-    <div> 
-        <Game />
-    </div>
+  <Game />
 );
 
 export default App;

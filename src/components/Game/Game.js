@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import "./Game.css";
 import Image  from "./Image.js";
-import logo from "../../img/logo.png"
+// import logo from "../../img/GameLogo.png"
 import imgs from '../../img';
-import Navbar from '../../Navbar'
+import Navbar from '../../Navbar';
+import Footer from '../../Footer';
 
 class Game extends Component {
   constructor(props) {
@@ -58,28 +59,32 @@ class Game extends Component {
 	render() {
 		console.log("state", this.state);
 		return (	
-			<main>
+			<div className='grid'>
 				<Navbar score={this.state.score}/>
-			<div className="container game-container">
-				<div className="row">
-					<div className="col center">
-						<img className="logo" alt="logo" src={logo} />
-						<h4 className="instructions center">Click on an image to earn points, but don't click it more than once!</h4>
-					</div>
-					{this.state.imgs.map((img, i) => {
-						return (
-					<Image
-					img={img.img}
-					clicked={img.clicked}
-					key={img.id}
-					id={img.id}
-					handleClick={this.handleClick}
-				/>
-			)
-					})}
+				<div className="game-container">
+					<div className="row">
+						<div className="col center">
+							{/* <img className="logo" alt="logo" src={logo} /> */}
+							<h4 className="instructions center">Click on an image to earn points, but don't click it more than once!</h4>
+						</div>
+						</div>
+						<div className='row'>
+						{this.state.imgs.map((img, i) => {
+							return (
+						<Image
+						img={img.img}
+						clicked={img.clicked}
+						key={img.id}
+						id={img.id}
+						handleClick={this.handleClick}
+					/>
+				)
+						})}
+						</div>
+
 				</div>
+				<Footer />
 			</div>
-			</main>
 		);
 	}
 }
