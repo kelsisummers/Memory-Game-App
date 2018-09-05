@@ -23,17 +23,6 @@ a.brand-logo {
   width: 100%;
 }
 
-/* li {
-  margin-right: 40px;
-  font-size: 1.4rem;
-} */
-
-/* nav .brand-logo {
-  color: #ff0000;
-  font-family: 'Audiowide', cursive;
-  margin-left: 20px;
-} */
-
 @media only screen and (max-width: 550px) {
   .nav-wrapper {
     flex-direction: column;

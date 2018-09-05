@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import "./Game.css";
 import Image  from "./Image.js";
-// import logo from "../../img/GameLogo.png"
 import imgs from '../../img';
 import Navbar from '../../Navbar';
 import Footer from '../../Footer';
@@ -35,11 +34,11 @@ class Game extends Component {
 		let imgs;
 		if(clicked) {
 		// it has beeen clicked before so we reset game
-			console.log("This has been clicked before", clicked);
+			// console.log("This has been clicked before", clicked);
 			imgs = this.state.imgs.map( img => { return {...img, clicked: false} })
 		// HAVE NOT SET TO FALSE YET
 		} else {
-			console.log("Hasn't been clicked before");
+			// console.log("Hasn't been clicked before");
 			imgs = this.state.imgs.map(img => {
 				if (img.id === id) {
 					return { ...img, clicked: true }
@@ -48,7 +47,7 @@ class Game extends Component {
 		}
 		
 		const score = imgs.reduce((acc, img) => {
-			console.log("what is img", img);
+			// console.log("what is img", img);
 			if (img.clicked) return acc + 1
 			else return acc
 		}, 0);
@@ -57,14 +56,13 @@ class Game extends Component {
   };
 
 	render() {
-		console.log("state", this.state);
+		// console.log("state", this.state);
 		return (	
 			<div className='grid'>
 				<Navbar score={this.state.score}/>
 				<div className="game-container">
 					<div className="row">
 						<div className="col center">
-							{/* <img className="logo" alt="logo" src={logo} /> */}
 							<h4 className="instructions center">Click on an image to earn points, but don't click it more than once!</h4>
 						</div>
 						</div>
