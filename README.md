@@ -1,4 +1,4 @@
-# memory-game-app
+# Memory-Game-App
 
 <strong>Hosted App Link: https://pacific-plains-90857.herokuapp.com/</strong>
 
